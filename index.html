@@ -1,0 +1,1391 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>日向坂46 QUIZ</title>
+
+<link rel="preconnect"
+      href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800;900&display=swap"
+      rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<!-- =======================================
+     LOADING PAGE
+======================================== -->
+
+<div id="loadingOverlay" class="loading-page">
+
+    <div class="loading-content">
+
+        <div class="hero-logo">☀️</div>
+
+        <h1 class="hero-title">
+            日向坂46 QUIZ
+        </h1>
+
+        <p class="hero-subtitle">
+            COMPLETE EDITION
+        </p>
+
+        <div class="loading-bar">
+
+            <div id="loadingBar"
+                 class="loading-fill">
+            </div>
+
+        </div>
+
+        <div id="loadingPercent"
+             class="loading-percent">
+            0%
+        </div>
+
+    </div>
+
+</div>
+
+<!-- =======================================
+     HOME PAGE
+======================================== -->
+
+<div id="homePage" class="page">
+
+    <header class="hero-area">
+
+        <div class="hero-logo">☀️</div>
+
+        <h1 class="hero-title">
+            日向坂46 QUIZ
+        </h1>
+
+        <p class="hero-subtitle">
+            COMPLETE EDITION
+        </p>
+
+        <span class="version-badge">
+            Ver.2.0 SKY EDITION
+        </span>
+
+    </header>
+
+    <!-- 通常クイズ -->
+
+    <section class="menu-card">
+
+        <h2>🎓 通常クイズ</h2>
+
+        <div class="menu-column">
+<button type="button" class="menu-button easy"
+    onclick="openDifficulty('easy')">
+    🌱 初級クイズ
+</button>
+
+<button type="button" class="menu-button middle"
+    onclick="openDifficulty('middle')">
+    🐟 中級クイズ
+</button>
+
+<button type="button" class="menu-button hard"
+    onclick="openDifficulty('hard')">
+    🔥 上級クイズ
+</button>
+
+<button type="button" class="menu-button random"
+    onclick="startRandomQuiz()">
+    🎲 ランダムクイズ
+    
+</button>
+</div>
+
+</section>
+
+    <!-- ジャンルクイズ -->
+
+    <section class="menu-card">
+
+        <h2>📚 ジャンルクイズ</h2>
+
+        <div class="menu-grid">
+
+            <button type="button" class="menu-button"
+                    onclick="showMemberMenu()">
+
+                👤 メンバー
+
+            </button>
+
+            <button type="button" class="menu-button"
+                    onclick="startGenreQuiz('TV')">
+
+                📺 TV
+
+            </button>
+
+            <button type="button" class="menu-button"
+                    onclick="startGenreQuiz('single')">
+
+                💿 シングル
+
+            </button>
+
+            <button type="button" class="menu-button"
+                    onclick="startGenreQuiz('album')">
+
+                📀 アルバム
+
+            </button>
+
+            <button type="button" class="menu-button"
+                    onclick="startGenreQuiz('mv')">
+
+                🎬 MV
+
+            </button>
+
+            <button type="button" class="menu-button"
+                    onclick="startGenreQuiz('live')">
+
+                🎤 ライブ
+
+            </button>
+
+            <button type="button" class="menu-button"
+                    onclick="startGenreQuiz('center')">
+
+                🌈 センター
+
+            </button>
+
+            <button type="button" class="menu-button"
+                    onclick="startGenreQuiz('formation')">
+
+                👥 フォーメーション
+
+            </button>
+
+            <button type="button" class="menu-button"
+                    onclick="startGenreQuiz('song')">
+
+                🎵 楽曲
+
+            </button>
+
+            <button type="button" class="menu-button"
+                    onclick="startGenreQuiz('other')">
+
+                ⭐ その他
+
+            </button>
+
+        </div>
+
+    </section>
+
+<!-- ==========================================
+     👤 メンバー選択画面
+========================================== -->
+
+<section class="menu-card" id="memberMenu" style="display:none;">
+
+    <h2>👤 メンバーを選択</h2>
+
+    <div class="member-grid">
+
+        <!-- 全メンバー -->
+        <button type="button" class="menu-button member"
+                onclick="startMemberQuiz('ALL')">🌈 全メンバー</button>
+
+        <!-- 1期生 -->
+        <button type="button" class="menu-button member" onclick="startMemberQuiz('加藤史帆')">加藤史帆</button>
+        <button type="button" class="menu-button member" onclick="startMemberQuiz('佐々木久美')">佐々木久美</button>
+        <button type="button" class="menu-button member" onclick="startMemberQuiz('佐々木美玲')">佐々木美玲</button>
+        <button type="button" class="menu-button member" onclick="startMemberQuiz('高瀬愛奈')">高瀬愛奈</button>
+        <button type="button" class="menu-button member" onclick="startMemberQuiz('東村芽依')">東村芽依</button>
+
+        <!-- 2期生 -->
+        <button type="button" class="menu-button member" onclick="startMemberQuiz('金村美玖')">金村美玖</button>
+        <button type="button" class="menu-button member" onclick="startMemberQuiz('河田陽菜')">河田陽菜</button>
+        <button type="button" class="menu-button member" onclick="startMemberQuiz('小坂菜緒')">小坂菜緒</button>
+        <button type="button" class="menu-button member" onclick="startMemberQuiz('富田鈴花')">富田鈴花</button>
+        <button type="button" class="menu-button member" onclick="startMemberQuiz('丹生明里')">丹生明里</button>
+        <button type="button" class="menu-button member" onclick="startMemberQuiz('濱岸ひより')">濱岸ひより</button>
+        <button type="button" class="menu-button member" onclick="startMemberQuiz('松田好花')">松田好花</button>
+
+        <!-- 3期生 -->
+        <button type="button" class="menu-button member" onclick="startMemberQuiz('上村ひなの')">上村ひなの</button>
+        <button type="button" class="menu-button member" onclick="startMemberQuiz('髙橋未来虹')">髙橋未来虹</button>
+        <button type="button" class="menu-button member" onclick="startMemberQuiz('森本茉莉')">森本茉莉</button>
+        <button type="button" class="menu-button member" onclick="startMemberQuiz('山口陽世')">山口陽世</button>
+
+        <!-- 4期生 -->
+        <button type="button" class="menu-button member" onclick="startMemberQuiz('石塚瑶季')">石塚瑶季</button>
+        <button type="button" class="menu-button member" onclick="startMemberQuiz('岸帆夏')">岸帆夏</button>
+        <button type="button" class="menu-button member" onclick="startMemberQuiz('小西夏菜実')">小西夏菜実</button>
+        <button type="button" class="menu-button member" onclick="startMemberQuiz('清水理央')">清水理央</button>
+        <button type="button" class="menu-button member" onclick="startMemberQuiz('正源司陽子')">正源司陽子</button>
+        <button type="button" class="menu-button member" onclick="startMemberQuiz('竹内希来里')">竹内希来里</button>
+        <button type="button" class="menu-button member" onclick="startMemberQuiz('平尾帆夏')">平尾帆夏</button>
+        <button type="button" class="menu-button member" onclick="startMemberQuiz('平岡海月')">平岡海月</button>
+        <button type="button" class="menu-button member" onclick="startMemberQuiz('藤嶌果歩')">藤嶌果歩</button>
+        <button type="button" class="menu-button member" onclick="startMemberQuiz('宮地すみれ')">宮地すみれ</button>
+        <button type="button" class="menu-button member" onclick="startMemberQuiz('渡辺莉奈')">渡辺莉奈</button>
+
+        <!-- 5期生 -->
+         <button type="button" class="menu-button member" onclick="startMemberQuiz('大田美月')">大田美月</button>
+        <button type="button" class="menu-button member" onclick="startMemberQuiz('大野愛実')">大野愛実</button>
+        <button type="button" class="menu-button member" onclick="startMemberQuiz('片山紗希')">片山紗希</button>
+        <button type="button" class="menu-button member" onclick="startMemberQuiz('蔵盛妃那乃')">蔵盛妃那乃</button>
+        <button type="button" class="menu-button member" onclick="startMemberQuiz('坂井新奈')">坂井新奈</button>
+        <button type="button" class="menu-button member" onclick="startMemberQuiz('佐藤優羽')">佐藤優羽</button>
+        <button type="button" class="menu-button member" onclick="startMemberQuiz('下田衣珠季')">下田衣珠季</button>
+        <button type="button" class="menu-button member" onclick="startMemberQuiz('高井俐香')">高井俐香</button>
+        <button type="button" class="menu-button member" onclick="startMemberQuiz('鶴崎仁香')">鶴崎仁香</button>
+        <button type="button" class="menu-button member" onclick="startMemberQuiz('松尾桜')">松尾桜</button>
+        
+
+    </div>
+
+    <button type="button" class="menu-button" onclick="hideMemberMenu()">
+        ← ジャンル一覧へ戻る
+    </button>
+
+</section>
+    <!-- ==============================
+         ゲームモード
+    =============================== -->
+
+    <section class="menu-card">
+
+        <h2>🎮 ゲームモード</h2>
+
+        <div class="menu-column">
+
+            <button type="button" class="menu-button attack"
+                    onclick="openTimeAttack(60)">
+
+                ⚡ タイムアタック（60秒）
+
+            </button>
+
+            <button type="button" class="menu-button attack"
+                    onclick="openTimeAttack(120)">
+
+                ⏱ タイムアタック（120秒）
+
+            </button>
+
+            <button type="button" class="menu-button challenge"
+                    onclick="startChallenge100()">
+
+                💯 100問チャレンジ
+
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- ==============================
+         年代別クイズ
+    =============================== -->
+
+    <section class="menu-card">
+
+        <h2>📅 年代別クイズ</h2>
+
+        <div class="year-grid">
+
+            <button type="button" class="menu-button year" onclick="startYearQuiz(2016)">2016</button>
+            <button type="button" class="menu-button year" onclick="startYearQuiz(2017)">2017</button>
+            <button type="button" class="menu-button year" onclick="startYearQuiz(2018)">2018</button>
+            <button type="button" class="menu-button year" onclick="startYearQuiz(2019)">2019</button>
+            <button type="button" class="menu-button year" onclick="startYearQuiz(2020)">2020</button>
+            <button type="button" class="menu-button year" onclick="startYearQuiz(2021)">2021</button>
+            <button type="button" class="menu-button year" onclick="startYearQuiz(2022)">2022</button>
+            <button type="button" class="menu-button year" onclick="startYearQuiz(2023)">2023</button>
+            <button type="button" class="menu-button year" onclick="startYearQuiz(2024)">2024</button>
+            <button type="button" class="menu-button year" onclick="startYearQuiz(2025)">2025</button>
+            <button type="button" class="menu-button year" onclick="startYearQuiz(2026)">2026</button>
+
+        </div>
+
+    </section>
+
+    <!-- ==============================
+         記録・ランキング
+    =============================== -->
+
+    <section class="menu-card">
+
+        <h2>🏆 記録・ランキング</h2>
+
+        <div class="menu-column">
+
+            <button type="button" class="menu-button"
+                    onclick="showPage('rankingPage'); loadRanking();">
+
+                🏆 ランキング
+
+            </button>
+
+            <button type="button" class="menu-button"
+                    onclick="showPage('favoritePage'); loadFavoritePage();">
+
+                ⭐ お気に入り
+
+            </button>
+
+            <button type="button" class="menu-button"
+                    onclick="showPage('reviewPage'); loadReviewPage();">
+
+                📖 復習問題
+
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- ==============================
+         設定
+    =============================== -->
+
+    <section class="menu-card">
+
+        <h2>⚙️ 設定</h2>
+
+        <div class="menu-column">
+
+            <button id="soundButton"
+                    class="menu-button"
+                    onclick="toggleSound()">
+
+                🔊 効果音 ON / OFF
+
+            </button>
+
+            <button type="button" class="menu-button"
+                    onclick="clearRanking()">
+
+                🗑 ランキングをリセット
+
+            </button>
+
+        </div>
+
+    </section>
+
+    <footer class="quiz-footer">
+
+        <p>☀️ 日向坂46 QUIZ COMPLETE EDITION</p>
+
+        <p>2019〜2026 完全対応</p>
+
+    </footer>
+
+</div>
+
+<!-- =======================================
+     難易度選択ページ
+======================================== -->
+
+<div id="questionCountPage" class="page">
+
+    <header class="page-header">
+
+        <button type="button" class="home-btn"
+                onclick="goHome()">
+
+            ← ホームへ戻る
+
+        </button>
+
+        <h1>🎓 問題数を選択</h1>
+
+        <p>10問・20問・50問・100問・全部から選べます。</p>
+
+    </header>
+
+    <div class="menu-card">
+
+        <div class="menu-column">
+
+            <button type="button" class="menu-button"
+                    onclick="startQuiz(10)">
+
+                ✅ 10問
+
+            </button>
+
+            <button type="button" class="menu-button"
+                    onclick="startQuiz(20)">
+
+                🌈 20問
+
+            </button>
+
+            <button type="button" class="menu-button"
+                    onclick="startQuiz(50)">
+
+                💙 50問
+
+            </button>
+
+            <button type="button" class="menu-button"
+                    onclick="startQuiz(100)">
+
+                💯 100問
+
+            </button>
+
+            <button type="button" class="menu-button challenge"
+                    onclick="startQuiz('all')">
+
+                🚀 全問題（1000問）
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- =======================================
+     タイムアタック難易度ページ
+======================================== -->
+
+<div id="timeAttackPage" class="page">
+
+    <header class="page-header">
+
+        <button type="button" class="home-btn"
+                onclick="goHome()">
+
+            ← ホームへ戻る
+
+        </button>
+
+        <h1 id="timeAttackTitle">⚡ タイムアタック</h1>
+
+        <p>難易度を選択してください。</p>
+
+    </header>
+
+    <div class="menu-card">
+
+        <div class="menu-column">
+
+            <button type="button" class="menu-button easy"
+                    onclick="startTimeAttack('easy')">
+
+                🌱 初級
+
+            </button>
+
+            <button type="button" class="menu-button middle"
+                    onclick="startTimeAttack('middle')">
+
+                🌤 中級
+
+            </button>
+
+            <button type="button" class="menu-button hard"
+                    onclick="startTimeAttack('hard')">
+
+                🔥 上級
+
+            </button>
+
+            <button type="button" class="menu-button random"
+                    onclick="startTimeAttack('random')">
+
+                🎲 ランダム
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- =======================================
+     QUIZ PAGE
+======================================== -->
+
+<div id="quizPage" class="page">
+
+    <!-- 上部ヘッダー -->
+
+    <header class="page-header">
+
+        <button type="button" class="home-btn"
+                onclick="goHome()">
+
+            ← ホームへ戻る
+
+        </button>
+
+        <h1>☀️ 日向坂46 QUIZ</h1>
+
+    </header>
+
+    <!-- ステータス表示 -->
+
+    <div class="status-grid">
+
+        <div class="status-card">
+
+            <div class="status-label">問題</div>
+
+            <div id="questionNumber"
+                 class="status-value">
+
+                1 / 10
+
+            </div>
+
+        </div>
+
+        <div class="status-card">
+
+            <div class="status-label">正解数</div>
+
+            <div id="scoreDisplay"
+                 class="status-value">
+
+                0
+
+            </div>
+
+        </div>
+
+        <div class="status-card">
+
+            <div class="status-label">コンボ</div>
+
+            <div id="comboDisplay"
+                 class="status-value">
+
+                0
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- タイマー（通常クイズでは非表示） -->
+
+    <div class="timer-wrapper">
+
+        <div class="timer-header">
+
+            <span>⏱ 残り時間</span>
+
+            <span id="timeDisplay">60秒</span>
+
+        </div>
+
+        <div class="timer-bar">
+
+            <div id="timeGauge"
+                 class="time-gauge">
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- クイズカード -->
+
+    <section class="question-card">
+
+        <!-- ジャンル -->
+
+        <div id="genreChip"
+             class="genre-chip">
+
+            MEMBER
+
+        </div>
+
+        <!-- 問題文 -->
+
+        <h2 id="questionText">
+
+            問題が表示されます。
+
+        </h2>
+
+        <!-- 問題画像 -->
+
+        <img id="questionImage"
+             class="question-image"
+             src=""
+             alt="問題画像"
+             style="display:none;">
+
+        <!-- 選択肢 -->
+
+        <div id="choiceContainer"
+             class="choice-container">
+
+        </div>
+
+        <!-- 正解・不正解 -->
+
+        <div id="answerResult"
+             class="answer-result">
+
+        </div>
+
+        <!-- 解説 -->
+        <div class="answer-explanation-box">
+        <div class="answer-explanation-title">📖 解説</div>
+        <div id="answerExplanation" class="answer-explanation"></div>
+       
+      </div>
+
+    </section>
+
+    <!-- コンボエフェクト -->
+
+    <div id="comboEffect"
+         class="combo-effect">
+
+    </div>
+
+    <!-- PERFECT -->
+
+    <div id="perfectEffect"
+         class="perfect-effect">
+
+        PERFECT!!
+
+    </div>
+
+    <!-- EXCELLENT -->
+
+    <div id="excellentEffect"
+         class="excellent-effect">
+
+        EXCELLENT!!
+
+    </div>
+
+    <!-- FEVER -->
+
+    <div id="feverEffect"
+         class="fever-effect">
+
+        🔥 FEVER TIME 🔥
+
+    </div>
+
+    <!-- 操作ボタン -->
+
+    <div class="quiz-actions">
+
+        <button type="button" class="favorite-button"
+                onclick="toggleFavorite()">
+
+            ⭐ お気に入り
+
+        </button>
+
+        <button id="nextButton"
+                class="start-button"
+                onclick="nextQuestion()"
+                style="display:none;">
+
+            ▶ 次の問題
+
+        </button>
+
+    </div>
+
+</div>
+
+<!-- =======================================
+     RESULT PAGE
+======================================== -->
+
+<div id="resultPage" class="page">
+
+    <header class="page-header">
+
+        <button type="button" class="home-btn"
+                onclick="goHome()">
+
+            ← ホームへ戻る
+
+        </button>
+
+        <h1>🏆 クイズ結果</h1>
+
+    </header>
+
+    <section class="result-card">
+
+        <!-- ランク -->
+
+        <div id="rankCircle"
+             class="rank-circle rankA">
+
+            A
+
+        </div>
+
+        <h2 id="resultMessage">
+
+            素晴らしい！
+
+        </h2>
+
+        <!-- 結果一覧 -->
+
+        <div class="result-grid">
+
+            <div class="result-item">
+
+                <span>⭕ 正解数</span>
+
+                <strong id="correctResult">0</strong>
+
+            </div>
+
+            <div class="result-item">
+
+                <span>📊 正解率</span>
+
+                <strong id="rateResult">0%</strong>
+
+            </div>
+
+            <div class="result-item">
+
+                <span>🔥 最大コンボ</span>
+
+                <strong id="comboResult">0</strong>
+
+            </div>
+
+            <div class="result-item">
+
+                <span>⭐ スコア</span>
+
+                <strong id="scoreResult">0</strong>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ベスト記録 -->
+
+    <section class="best-record-card">
+
+        <h2>🌈 ベスト記録</h2>
+
+        <div class="best-record-item">
+
+            <span>⭐ ハイスコア</span>
+
+            <strong id="bestScore">0</strong>
+
+        </div>
+
+        <div class="best-record-item">
+
+            <span>🔥 最大コンボ</span>
+
+            <strong id="bestCombo">0</strong>
+
+        </div>
+
+        <div class="best-record-item">
+
+            <span>💯 PERFECT回数</span>
+
+            <strong id="perfectCount">0</strong>
+
+        </div>
+
+    </section>
+
+    <!-- 操作 -->
+
+    <div class="result-actions">
+
+        <button type="button" class="start-button"
+                onclick="retryQuiz()">
+
+            🔄 もう一度挑戦する
+
+        </button>
+
+        <button type="button" class="menu-button"
+                onclick="showPage('rankingPage'); loadRanking();">
+
+            🏆 ランキングを見る
+
+        </button>
+
+        <button type="button" class="home-btn"
+                onclick="goHome()">
+
+            🏠 ホームへ戻る
+
+        </button>
+
+    </div>
+
+</div>
+
+<!-- =======================================
+     RANKING PAGE
+======================================== -->
+
+<div id="rankingPage" class="page">
+
+    <header class="page-header">
+
+        <button type="button" class="home-btn"
+                onclick="goHome()">
+
+            ← ホームへ戻る
+
+        </button>
+
+        <h1>🏆 ランキング</h1>
+
+        <p>スコア・正解率・コンボのランキング</p>
+
+    </header>
+
+    <!-- ランキング切替 -->
+
+    <section class="menu-card">
+
+        <div class="ranking-tab-grid">
+
+            <button type="button" class="menu-button"
+                    onclick="loadRanking()">
+
+                ⭐ 総合ランキング
+
+            </button>
+
+            <button type="button" class="menu-button"
+                    onclick="loadRanking('60')">
+
+                ⚡ 60秒ランキング
+
+            </button>
+
+            <button type="button" class="menu-button"
+                    onclick="loadRanking('120')">
+
+                ⏱ 120秒ランキング
+
+            </button>
+
+            <button type="button" class="menu-button"
+                    onclick="loadRanking('challenge')">
+
+                💯 100問ランキング
+
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- ベスト記録 -->
+
+    <section class="best-record-card">
+
+        <h2>🌈 自分のベスト記録</h2>
+
+        <div class="best-record-item">
+            <span>⭐ ハイスコア</span>
+            <strong id="bestScoreRanking">0</strong>
+        </div>
+
+        <div class="best-record-item">
+            <span>🔥 最大コンボ</span>
+            <strong id="bestComboRanking">0</strong>
+        </div>
+
+        <div class="best-record-item">
+            <span>💯 PERFECT回数</span>
+            <strong id="perfectCountRanking">0</strong>
+        </div>
+
+    </section>
+
+    <!-- ランキング表 -->
+
+    <section class="ranking-card">
+
+        <table class="ranking-table">
+
+            <thead>
+
+                <tr>
+                    <th>順位</th>
+                    <th>日付</th>
+                    <th>スコア</th>
+                    <th>正解</th>
+                    <th>正解率</th>
+                    <th>コンボ</th>
+                    <th>モード</th>
+                </tr>
+
+            </thead>
+
+            <tbody id="rankingBody">
+
+            </tbody>
+
+        </table>
+
+    </section>
+
+    <!-- 操作ボタン -->
+
+    <div class="result-actions">
+
+        <button type="button" class="menu-button"
+                onclick="loadRanking()">
+
+            🔄 更新
+
+        </button>
+
+        <button type="button" class="menu-button"
+                onclick="clearRanking()">
+
+            🗑 ランキングを削除
+
+        </button>
+
+        <button type="button" class="home-btn"
+                onclick="goHome()">
+
+            🏠 ホームへ戻る
+
+        </button>
+
+    </div>
+
+</div>
+
+<!-- =======================================
+     FAVORITE PAGE
+======================================== -->
+
+<div id="favoritePage" class="page">
+
+    <header class="page-header">
+
+        <button type="button" class="home-btn"
+                onclick="goHome()">
+
+            ← ホームへ戻る
+
+        </button>
+
+        <h1>⭐ お気に入り問題</h1>
+
+        <p>お気に入り登録した問題一覧です。</p>
+
+    </header>
+
+    <!-- お気に入り一覧 -->
+
+    <section class="menu-card">
+
+        <div id="favoriteList" class="favorite-list">
+
+            <!-- JavaScriptで生成 -->
+
+        </div>
+
+    </section>
+
+    <!-- 操作 -->
+
+    <div class="favorite-actions">
+
+        <button type="button" class="menu-button"
+                onclick="loadFavoritePage()">
+
+            🔄 更新
+
+        </button>
+
+        <button type="button" class="home-btn"
+                onclick="goHome()">
+
+            🏠 ホームへ戻る
+
+        </button>
+
+    </div>
+
+</div>
+
+<!-- =======================================
+     REVIEW PAGE
+======================================== -->
+
+<div id="reviewPage" class="page">
+
+    <header class="page-header">
+
+        <button type="button" class="home-btn"
+                onclick="goHome()">
+
+            ← ホームへ戻る
+
+        </button>
+
+        <h1>📖 復習問題</h1>
+
+        <p>不正解になった問題を復習できます。</p>
+
+    </header>
+
+    <!-- 復習一覧 -->
+
+    <section class="menu-card">
+
+        <div id="reviewList" class="review-list">
+
+            <!-- JavaScriptで生成 -->
+
+        </div>
+
+    </section>
+
+    <!-- 操作 -->
+
+    <div class="favorite-actions">
+
+        <button type="button" class="menu-button"
+                onclick="loadReviewPage()">
+
+            🔄 更新
+
+        </button>
+
+        <button type="button" class="home-btn"
+                onclick="goHome()">
+
+            🏠 ホームへ戻る
+
+        </button>
+
+    </div>
+
+</div>
+
+<!-- =======================================
+     EMPTY BOX TEMPLATE
+======================================== -->
+
+<div id="emptyTemplate" style="display:none;">
+
+    <div class="empty-box">
+
+        <div class="emoji">⭐</div>
+
+        <h2>データがありません</h2>
+
+        <p>ここに内容が表示されます。</p>
+
+    </div>
+
+</div>
+
+<!-- =======================================
+     TOAST
+======================================== -->
+
+<div id="toast" class="toast">
+
+    保存しました
+
+</div>
+
+<!-- =======================================
+     EFFECT AREA
+======================================== -->
+
+<!-- COMBO -->
+<div id="comboEffect" class="combo-effect"></div>
+
+<!-- PERFECT -->
+<div id="perfectEffect" class="perfect-effect">
+
+    <div class="effect-text">
+        🌈 PERFECT!!
+    </div>
+
+</div>
+
+<!-- EXCELLENT -->
+<div id="excellentEffect" class="excellent-effect">
+
+    <div class="effect-text">
+        ✨ EXCELLENT!!
+    </div>
+
+</div>
+
+<!-- FEVER -->
+<div id="feverEffect" class="fever-effect">
+
+    <div class="effect-text">
+        🔥 FEVER TIME 🔥
+    </div>
+
+</div>
+
+<!-- 紙吹雪 -->
+<div id="confettiContainer"
+     class="confetti-container">
+
+</div>
+
+<!-- キラキラ -->
+<div id="particleContainer"
+     class="particle-container">
+
+</div>
+
+<!-- =======================================
+     MESSAGE MODAL
+======================================== -->
+
+<div id="messageModal"
+     class="modal">
+
+    <div class="modal-content">
+
+        <div id="modalIcon"
+             class="modal-icon">
+
+            🎉
+
+        </div>
+
+        <h2 id="modalTitle">
+
+            タイトル
+
+        </h2>
+
+        <p id="modalText">
+
+            メッセージ
+
+        </p>
+
+        <button type="button" class="start-button"
+                onclick="closeMessage()">
+
+            OK
+
+        </button>
+
+    </div>
+
+</div>
+
+<!-- =======================================
+     PAUSE MODAL
+======================================== -->
+
+<div id="pauseModal"
+     class="modal">
+
+    <div class="modal-content">
+
+        <div class="modal-icon">
+            ⏸️
+        </div>
+
+        <h2>ゲームを一時停止しました</h2>
+
+        <button type="button" class="start-button"
+                onclick="resumeQuiz()">
+
+            ▶ ゲームに戻る
+
+        </button>
+
+        <button type="button" class="menu-button"
+                onclick="goHome()">
+
+            🏠 ホームへ戻る
+
+        </button>
+
+    </div>
+
+</div>
+
+<!-- =======================================
+     LOADING OVERLAY
+======================================== -->
+
+<div id="loadingOverlay2" class="loading-overlay">
+
+    <div class="loading-content">
+
+        <div class="hero-logo">
+            ☀️
+        </div>
+
+        <h2>Loading...</h2>
+
+        <div class="loading-bar">
+
+            <div id="loadingBarOverlay"
+                 class="loading-fill">
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- =======================================
+     BACKGROUND EFFECT
+======================================== -->
+
+<div class="sparkle-container">
+
+    <span class="sparkle"></span>
+    <span class="sparkle"></span>
+    <span class="sparkle"></span>
+    <span class="sparkle"></span>
+    <span class="sparkle"></span>
+    <span class="sparkle"></span>
+    <span class="sparkle"></span>
+    <span class="sparkle"></span>
+
+</div>
+
+<div class="cloud-container">
+
+    <div class="cloud cloud1"></div>
+    <div class="cloud cloud2"></div>
+    <div class="cloud cloud3"></div>
+
+</div>
+
+<!-- =======================================
+     AUDIO（効果音）
+======================================== -->
+
+<audio id="correctSE" preload="auto">
+    <source src="sounds/correct.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="wrongSE" preload="auto">
+    <source src="sounds/wrong.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="comboSE" preload="auto">
+    <source src="sounds/combo.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="countdownSE" preload="auto">
+    <source src="sounds/countdown.mp3" type="audio/mpeg">
+</audio>
+
+<audio id="finishSE" preload="auto">
+    <source src="sounds/finish.mp3" type="audio/mpeg">
+</audio>
+
+<!-- =======================================
+     SCRIPT FILES
+======================================== -->
+
+<script src="questions.js"></script>
+<script src="script.js"></script>
+<script src="favorite.js"></script>
+<script src="ranking.js"></script>
+<script src="challenge.js"></script>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    // 問題データを読み込む
+    if (typeof loadQuestions === "function") {
+        loadQuestions();
+    }
+
+    // ホーム画面を表示
+    showPage("homePage");
+
+});
+</script>
+
+</body>
+</html>
+
+<!-- ===== BGM ===== -->
+<audio id="homeBGM1" loop preload="auto" src="bgm/home1.mp3"></audio>
+<audio id="quizBGM" loop preload="auto" src="bgm/quiz.mp3"></audio>
+<audio id="timeAttackBGM" loop preload="auto" src="bgm/timeattack.mp3"></audio>
+<audio id="resultBGM" loop preload="auto" src="bgm/result.mp3"></audio>
+
+<div class="bgm-controller">
+
+    <div class="bgm-controller-title">
+        🎵 BGM設定
+    </div>
+
+    <button id="bgmToggleButton"
+            class="menu-button"
+            onclick="toggleBGM()">
+        🎵 ON
+    </button>
+
+    <br><br>
+
+    <label>音量</label>
+
+    <input id="bgmVolume"
+           class="bgm-volume"
+           type="range"
+           min="0"
+           max="100"
+           value="30"
+           oninput="changeBGMVolume(this.value)">
+</div>
